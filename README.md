@@ -23,3 +23,7 @@ Then run ```npm run seeds```
 And finally run node server
 
 You can now create requests to the database
+
+## Video walkthrough
+
+[https://drive.google.com/file/d/1oTIQlQ4QFprWQdm4Y5eVpWsaxFtHV68N/view](https://drive.google.com/file/d/1oTIQlQ4QFprWQdm4Y5eVpWsaxFtHV68N/view)

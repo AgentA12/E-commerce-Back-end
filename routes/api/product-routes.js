@@ -14,15 +14,14 @@ router.get("/", (req, res) => {
 
 // get one product
 router.get("/:id", (req, res) => {
+  console.log(req.params.id);
   // find a single product by its `id`
-  Product.findOne(
-    { include: [Category, Tag] },
-    {
-      where: {
-        id: req.params.id,
-      },
-    }
-  ).then((productInfo) => {
+  Product.findOne({
+    include: [Category, Tag],
+    where: {
+      id: req.params.id,
+    },
+  }).then((productInfo) => {
     res.json(productInfo);
   });
   // be sure to include its associated Category and Tag data
@@ -41,6 +40,7 @@ router.post("/", (req, res) => {
   Product.create(req.body)
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
+      console.log(product)
       if (req.body.tagIds.length) {
         const productTagIdArr = req.body.tagIds.map((tag_id) => {
           return {
@@ -48,6 +48,7 @@ router.post("/", (req, res) => {
             tag_id,
           };
         });
+       
         return ProductTag.bulkCreate(productTagIdArr);
       }
       // if no product tags, just respond
