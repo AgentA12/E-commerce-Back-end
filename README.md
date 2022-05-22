@@ -22,4 +22,4 @@ Run ```npm install```
 Then run ```npm run seeds```
 And finally run node server
 
-You can now create request to the database
+You can now create requests to the database
